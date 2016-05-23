@@ -37,5 +37,6 @@ def runprog(prog):
     return True # Halt not found
 
 if __name__ === "__main__":
+    init()
     while runprog(raw_input(sys.ps1)): # Get user input
         pass
