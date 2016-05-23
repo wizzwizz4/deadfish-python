@@ -28,11 +28,11 @@ There is also the non-standard command `h`, which halts the program.
 
 Importing this module gives access to the following functions:
 
-### `init()`
+** `init()` **  
 Initilises the interpreter.
 
-### `runcmd(cmd)`
+** `runcmd(cmd)` **  
 Interprets the character `cmd` as a command. Returns `False` for the halt command, `True` otherwise.
 
-### `runprog(prog)`
+** `runprog(prog)` **
 Interprets the string `prog` as a program. Returns `False` if the program encountered the halt command, `True` otherwise.
