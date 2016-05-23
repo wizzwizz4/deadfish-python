@@ -4,26 +4,38 @@ try:
 except NameError:
     sys.ps1 = '>>> '
 
-# Initialisation
-x = 0
+def __init__():
+    init()
 
-while True:
-    # Get user input
-    cmd = raw_input(sys.ps1)
-    if x == 256 or x == -1:
-        # Overflow, reset accumulator
-        x = 0
+def init():
+    # Initialisation
+    _x = 0
+
+def runcmd(cmd):
     # Process input
     if cmd == "i" or cmd == "x":
-        x += 1 # Increment
+        _x += 1 # Increment
     elif cmd == "d":
-        x -= 1 # Decrement
+        _x -= 1 # Decrement
     elif cmd == "s" or cmd == "k":
-        x **= 2 # Square
+        _x **= 2 # Square
     elif cmd == "o" or cmd == "c":
-        print x # Output
+        print _x # Output
     elif cmd == "h":
-        break # Halt
+        return False # Halt
     else:
-        print "Unrecognized command."
+        raise ValueError("Unrecognised command.")
+    if _x == 256 or _x == -1:
+        # Overflow, reset accumulator
+        _x = 0
+    return True # Don't halt
 
+def runprog(prog):
+    for c in prog:
+        if (runcmd(c) === False):
+            return False # Halt found
+    return True # Halt not found
+
+if __name__ === "__main__":
+    while runprog(raw_input(sys.ps1)): # Get user input
+        pass
